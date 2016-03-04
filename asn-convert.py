@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 import sys
 
@@ -26,6 +26,7 @@ def asplain2asdot( asplain ):
     return ret
 
 def main():
+    "Runs as a utility to convert between formats automatically"
     length = len(sys.argv)
 
     if length == 2:
