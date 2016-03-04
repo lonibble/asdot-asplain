@@ -21,14 +21,23 @@ def asplain2asdot( asplain ):
 	ret = str(counter) + "." + str(new)
 	return ret
 
-length = len(sys.argv)
+def main():
+	length = len(sys.argv)
 
-if length == 2:
-	start = sys.argv[1]
-	if "." not in start:
-		print "Start is ASPLAIN: ", start
-		print asplain2asdot( start )
+	if length == 2:
+		start = sys.argv[1]
+		if "." not in start:
+			print "Start is ASPLAIN: ", start
+			print asplain2asdot( start )
+		else:
+			print "Start is ASDOT+: ", start
+			print asdot2plain( start )
 	else:
-		print "Start is ASDOT+: ", start
-		print asdot2plain( start )
+		print "Usage:"
+		print sys.argv[0] + " <asn>"
+		print ""
+		print "    <asn> - ASN to convert in ASPLAIN or ASDOT format"
+		print ""
 
+if __name__ == "__main__":
+    main()
