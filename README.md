@@ -46,3 +46,7 @@ makes 2 functions available:
 *	`asdot2plain( asdot )`
 *	`asplain2asdot( asplain )`
 
+## References
+
+* https://ccieblog.co.uk/bgp/bgp-4-byte-as-numbers
+
