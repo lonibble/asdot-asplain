@@ -9,7 +9,8 @@ def asdot2plain( asdot ):
     return ret
 
 def asplain2asdot( asplain ):
-    "This returns an ASDOT+ formated ASN given an ASPLAIN format"
+    "This returns an ASDOT+ formated ASN given an ASPLAIN format,"
+    "unless given a 16-bit ASN"
     begin = int(asplain)
     current = begin
     new = current
@@ -18,7 +19,10 @@ def asplain2asdot( asplain ):
         new = current - 65536;
         counter = counter + 1
         current = new
-    ret = str(counter) + "." + str(new)
+    if counter == 0:
+        ret = str(new)
+    else:
+        ret = str(counter) + "." + str(new)
     return ret
 
 def main():
@@ -27,16 +31,19 @@ def main():
     if length == 2:
         start = sys.argv[1]
         if "." not in start:
-            print "Start is ASPLAIN: ", start
+            # ASPLAIN
             print asplain2asdot( start )
         else:
-            print "Start is ASDOT+: ", start
+            # ASDOT+
             print asdot2plain( start )
     else:
         print "Usage:"
-        print sys.argv[0] + " <asn>"
+        print "  " + sys.argv[0] + " <asn>"
         print ""
-        print "    <asn> - ASN to convert in ASPLAIN or ASDOT format"
+        print "    <asn> - ASN to convert in ASPLAIN or ASDOT+ format"
+        print ""
+        print "Outputs ASPLAIN if given ASDOT+, and ASDOT+ if given ASPLAIN,"
+        print "unless as 16-bit ASN, then no change"
         print ""
 
 if __name__ == "__main__":
