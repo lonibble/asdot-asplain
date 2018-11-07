@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 
+import re
 import sys
 
 def asdot2plain( asdot ):
     "This returns an ASPLAIN formated ASN given an ASDOT+ format"
-    left,right= asdot.split('.')
+    left,right = re.split('\.|:', asdot)
     ret = int(left) * 65536 + int(right)
     return ret
 
@@ -31,12 +32,15 @@ def main():
 
     if length == 2:
         start = sys.argv[1]
-        if "." not in start:
-            # ASPLAIN
-            print asplain2asdot( start )
-        else:
+        if '.' in start:
             # ASDOT+
             print asdot2plain( start )
+        elif ':' in start:
+            # ASDOT+
+            print asdot2plain( start )
+        else:
+            # ASPLAIN
+            print asplain2asdot( start )
     else:
         print "Usage:"
         print "  " + sys.argv[0] + " <asn>"
