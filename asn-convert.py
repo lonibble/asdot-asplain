@@ -32,7 +32,6 @@ def main():
 
     if length == 2:
         start = sys.argv[1]
-        print start
         if '.' in start:
             # ASDOT+
             print asdot2plain( start )
