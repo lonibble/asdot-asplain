@@ -34,22 +34,22 @@ def main():
         start = sys.argv[1]
         if '.' in start:
             # ASDOT+
-            print asdot2plain( start )
+            print(asdot2plain( start ))
         elif ':' in start:
             # ASDOT+
-            print asdot2plain( start )
+            print(asdot2plain( start ))
         else:
             # ASPLAIN
-            print asplain2asdot( start )
+            print(asplain2asdot( start ))
     else:
-        print "Usage:"
-        print "  " + sys.argv[0] + " <asn>"
-        print ""
-        print "    <asn> - ASN to convert in ASPLAIN or ASDOT+ format"
-        print ""
-        print "Outputs ASPLAIN if given ASDOT+, and ASDOT+ if given ASPLAIN,"
-        print "unless as 16-bit ASN, then no change"
-        print ""
+        print("Usage:")
+        print("  " + sys.argv[0] + " <asn>")
+        print("")
+        print("    <asn> - ASN to convert in ASPLAIN or ASDOT+ format")
+        print("")
+        print("Outputs ASPLAIN if given ASDOT+, and ASDOT+ if given ASPLAIN,")
+        print("unless as 16-bit ASN, then no change")
+        print("")
 
 if __name__ == "__main__":
     main()
