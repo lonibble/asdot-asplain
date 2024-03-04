@@ -5,7 +5,7 @@ import sys
 
 def asdot2plain( asdot ):
     "This returns an ASPLAIN formated ASN given an ASDOT+ format"
-    left,right = re.split('\.|:', asdot)
+    left,right = re.split('\\.|:', asdot)
     ret = int(left) * 65536 + int(right)
     return ret
 
